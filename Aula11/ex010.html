@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAÍS</title>
+</head>
+<body>
+    <h1>Sistema de Nacionalidade</h1>
+    País de Origem: <input name="txtpais"  id="txtpais">
+    <input type="button" value="Verificar" onclick = "Origem()">
+    <div id = "res">
+
+    </div>
+    <script>
+        function Origem() {
+            var pais = document.getElementById('txtpais')
+            var res = document.getElementById('res')
+            var p = String(pais.value)
+            res.innerHTML = `<p>Seu país é <strong>${p}</strong>!</p>`
+            if (p == 'Brasil') {
+                res.innerHTML += `<p>Você é <strong>brasileiro</strong>!`
+            } else {
+                res.innerHTML += `<p>Você é <strong>estrangeiro</strong>!`
+            }
+        }
+    </script>
+</body>
+</html>

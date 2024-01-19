@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+</head>
+<body>
+    <div class="form-group">
+        <input class="form-control input-lg" type="text" name="cc-number" id="cc-number">
+      </div>
+      <div class="form-group">
+        <input class="form-control input-lg" name="cc-flag" id="cc-flag" type="text">
+      </div>
+      
+      <script>
+        var input = document.querySelector('input#cc-number')
+        var result = document.querySelector('input#cc-flag')
+
+        input.addEventListener('onclick', onInputChange)
+        input.addEventListener('input', onInputChange)
+
+        function onInputChange (e) {
+        var cards = CardType.cardType(e.target.value)
+        result.value = cards
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processo</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body onload ="dataHoje()">
+    <section id="area">
+        <div id="dados">
+            <h1>Consultar Processos...</h1>
+            <p>Link do Processo:
+                <input type="text" name="link" id="txtlink">
+                <input type="button" value="Adicionar" id="add"onclick="escreverArquivo()">
+            </p>
+            <p>Data de Movimentação:
+            <input type="date" id="data">
+            <input type="button" value="Consultar" id="but" onclick="abrirArquivo()">
+            </p>
+        </div>
+        <div id="res">
+           
+        </div>
+    </section>
+    <footer>
+        <p>&copy; FLP System</p>
+    </footer>  
+    <script src="consulta.js"></script>
+</body>
+</html>

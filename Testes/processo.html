@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        div#area{
+            font: normal 20pt Arial;
+            background: rgb(42, 139, 42);
+            color: white;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id = "area">
+        Interaja...
+
+    </div>
+
+    <script>
+        var a = window.document.getElementById('area')
+        const b = "grau"
+        a.addEventListener('click', consultarProcessadorPorConteudo(b))
+        a.addEventListener('mouseenter', entrar)
+        a.addEventListener('mouseout', sair)
+
+        function Clicar(){
+            a.innerText = 'Clicou!'
+            a.style.background = 'red'
+        }
+        function consultarProcessadorPorConteudo(conteudo) {
+            const url = "https://www.tjal.jus.br";
+
+            // Objeto de configuração para a requisição POST
+            const config = {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ conteudo: conteudo })
+            };
+
+            // Fazer a requisição POST usando o Fetch
+            fetch(url, config)
+                .then(response => response.json())
+                .then(data => {
+                // Processar os dados recebidos do processador
+                console.log(data);
+                // Faça algo com os dados processados, como exibi-los na tela ou manipulá-los de alguma forma
+                })
+                .catch(error => {
+                console.error("Ocorreu um erro na consulta:", error);
+                });
+            }
+
+            // Exemplo de uso da função para consultar o processador por conteúdo
+            //const conteudo = "Texto para processamento";
+            //consultarProcessadorPorConteudo(conteudo);
+
+
+    </script>
+</body>
+</html>

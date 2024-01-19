@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        div#area{
+            font: normal 20pt Arial;
+            background: rgb(55, 65, 156);
+            color: white;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id = "area">
+        Pênalti...
+
+    </div>
+
+    <script>
+        var a = window.document.getElementById('area')
+        a.addEventListener('click', apostarNoPenalti)
+        a.addEventListener('mouseout', sair)
+
+        // Função para simular uma aposta de pênalti
+        function apostarNoPenalti() {
+            // Gerar um número aleatório entre 0 e 1 para representar o resultado do pênalti
+            const resultado = Math.random();
+
+            // Verificar o resultado e determinar se foi um  ou não
+            if (resultado < 0.8) {
+                a.innerText = 'Gol!'
+                a.style.background = 'Green'
+            } else {
+                a.innerText = 'Defesa!'
+                a.style.background = 'red'
+            }
+        }
+
+        function sair(){
+            a.innerText = 'Saiu!'
+            a.style.background = 'blue'
+        }
+
+        /*function minhaFuncao() {
+            console.log('A função foi chamada');
+        }*/
+
+    </script>
+</body>
+</html>
