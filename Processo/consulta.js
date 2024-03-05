@@ -9,29 +9,32 @@ var myDate = window.document.querySelector('input#data') // A palavra que você 
 var res = document.querySelector('div#res')
 var a = window.document.getElementById('area')
 var d = window.document.getElementById('dados')
+var arq = window.document.getElementById('arquivo')
 
+var login = window.document.getElementById('ilogin')
+var senha = window.document.getElementById('isenha')
 
-// A URL do site que você deseja verificar
-const sites = [
-  
-  //FILIPE
-  'https://www2.tjal.jus.br/cpopg/show.do?processo.codigo=010010YUO0001&processo.foro=1&conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=filipe+leite+pais&cdForo=-1&cdProcessoMaster=010010YUO0000&cdForoProcesso=1&conversationId=&paginaConsulta=1/',
-  'https://www2.tjal.jus.br/cpopg/show.do?processo.codigo=01000ZXCL0002&processo.foro=1&conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=filipe+leite+pais&cdForo=-1&cdProcessoMaster=01000ZXCL0000&cdForoProcesso=1&conversationId=&paginaConsulta=1',
-  'https://www2.tjal.jus.br/cpopg/show.do?processo.codigo=01000X0LB0000&processo.foro=1&conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=filipe+leite+pais&cdForo=-1&paginaConsulta=1',
-  'https://www2.tjal.jus.br/cpopg/show.do?processo.codigo=01000RRH90001&processo.foro=1&conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=filipe+leite+pais&cdForo=-1&cdProcessoMaster=01000RRH90000&cdForoProcesso=1&conversationId=&paginaConsulta=1',
-  'https://www2.tjal.jus.br/cpopg/show.do?processo.codigo=01001FNRV0000&processo.foro=1&conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=filipe+leite+pais&cdForo=-1&paginaConsulta=1',
-  
-  
- 
-  //ORACIO
-  'https://www2.tjal.jus.br/cpopg/show.do?processo.codigo=01001FDSL0000&processo.foro=1&conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=oracio+pais+da+silva&cdForo=-1&paginaConsulta=1',
-  'https://www2.tjal.jus.br/cpopg/show.do?processo.codigo=01001FDSJ0000&processo.foro=1&conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=oracio+pais+da+silva&cdForo=-1&paginaConsulta=1',
-  'https://www2.tjal.jus.br/cpopg/show.do?processo.codigo=01001CXYB0000&processo.foro=1&conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=oracio+pais+da+silva&cdForo=-1&paginaConsulta=1',
-  'https://www2.tjal.jus.br/cpopg/show.do?processo.codigo=010018DCL0000&processo.foro=1&conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=oracio+pais+da+silva&cdForo=-1&paginaConsulta=1',
-  'https://www2.tjal.jus.br/cpopg/show.do?processo.codigo=010012OFV0000&processo.foro=1&conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=oracio+pais+da+silva&cdForo=-1&paginaConsulta=1',
-  'https://www2.tjal.jus.br/cpopg/show.do?processo.codigo=01001FKDM0000&processo.foro=1&conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=oracio+pais+da+silva&cdForo=-1&paginaConsulta=1',
-  
-]
+//________________________________________________________________________________
+
+function entrar() {
+  if ((login.value == "flpsystem" && senha.value == "abracadabra40") || (login.value == "admin" && senha.value == "admin")) {
+    window.location.href = "processo.html"
+  } else {
+    window.alert('Usuário ou senha inválido!')
+  }
+}
+
+//________________________________________________________________________________
+
+document.addEventListener('keypress', function(e) {
+  if(e.key === "Enter") {
+    const btn = document.getElementById('but')
+    btn.click()
+    e.preventDefault() //Parar o evento.
+  }
+})
+
+//________________________________________________________________________________
 
 function dataHoje() { 
   // Obtém a data atual
@@ -48,15 +51,36 @@ function dataHoje() {
   myDate.value = dataFormatada
 }
 
+//________________________________________________________________________________
 
+function abrirArquivo() {
+  fetch(`${arq.value}.txt`)
+    .then(response => {
+      if(!response.ok) {
+        throw Error(response.statusText)
+      }
+      return response
+    })
+    .then(response => response.text())
+    .then(text => {
+      const lista = text.split('\n')
+      const filtrado = lista.filter(x => x.substring(0,4) === 'http')      //O método trim() remove os espaços das tags vazias.
+      consultar(filtrado)
+    })
+    .catch(error => {
+      window.alert(`Arquivo inválido!`)
+    })
+}
+//________________________________________________________________________________
 
-function consultar() {
+function consultar(sites) {
 
   var palavraChave = myDate.value.split('-').reverse().join('/')
   var siteAberto = 0
   var item = 0
 
   if (myDate.value != '') {
+    d.style.borderBottom = '1px solid #000'
     res.innerHTML = `<p>Total de Processos: ${sites.length}</p>`
     sites.forEach(site => {
       fetch(site)
@@ -65,7 +89,7 @@ function consultar() {
           //Verificador de sites repetidos!
           if(sites.indexOf(sites[item]) != item) {
             res.innerHTML += `<p>Endereço repetido:</p> ${sites[item]}`
-            a.style.width = '800px'
+            a.style.maxWidth = '1000px'
             d.style.textAlign = 'center'
           }
           item++
@@ -83,7 +107,7 @@ function consultar() {
         .catch(error => {
           //console.error(`Ocorreu um erro ao acessar o site ${site}:`, error);
           res.innerHTML += `<p>O endereço de site está inválido:</p> ${site}`
-          a.style.width = '800px'
+          a.style.maxWidth = '1000px'
           d.style.textAlign = 'center'
         });
     })
