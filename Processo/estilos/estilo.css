@@ -15,7 +15,7 @@ section{
     border-radius: 10px;
     padding: 15px;
     min-width: 320px;
-    max-width: 500px;
+    max-width: 800px;
     margin: auto;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.521);
 }
@@ -37,14 +37,23 @@ img {
 select#arquivo {
     height:33px;
     width:207px
-}   
-input#data {
+}
+input#txtlink {
+    height:25px;
+    min-width: 440px;
+}
+input#add {
     height:32px;
+    width:100px;
+    margin-top: 5px;
+}
+input#data {
+    height:30px;
     width:150px
 }
 input#but {
     height:32px;
-    width:100px
+    width:100px;
 }
 footer {
     color: white;
