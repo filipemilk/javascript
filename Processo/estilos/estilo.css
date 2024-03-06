@@ -38,14 +38,26 @@ select#arquivo {
     height:33px;
     width:207px
 }
-input#txtlink {
+fieldset {
+    background-color: rgb(245, 245, 245);
+}
+legend {
+    font-size: 0.8em;
+    font-weight: bold;
+}
+input#ilink {
     height:25px;
     min-width: 440px;
 }
 input#add {
     height:32px;
     width:100px;
-    margin-top: 5px;
+    margin-top: 10px;
+}
+input#inome {
+    height: 25px;
+    min-width: 219px;
+    max-width: 400px;
 }
 input#data {
     height:30px;
