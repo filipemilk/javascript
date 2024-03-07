@@ -36,8 +36,15 @@
                     <fieldset>
                         <legend>Área de Consulta</legend>
                         <div>
+                            <label for="iautordata">Escolha o campo:</label>
+                            <select name="autordata" id="iautordata">
+                                <option value="Autor">Autor</option>
+                                <option value="Data" selected>Data</option>
+                            </select>
+                        </div>
+                        <div>
                             <label for="inome">Nome do Autor:</label>
-                            <input type="text" name="nome" id="inome">
+                            <input type="text" name="nome" id="inome" disabled>
                         </div>
                         <div>
                             <label for="data">Data de Movimentação:</label>
