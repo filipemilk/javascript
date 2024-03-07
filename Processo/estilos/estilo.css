@@ -47,12 +47,12 @@ legend {
 }
 input#ilink {
     height:25px;
-    min-width: 440px;
+    width: 60%;
+    margin-right: 10px;
 }
 input#inome {
     height: 25px;
-    min-width: 219px;
-    max-width: 400px;
+    width: 300px;
 }
 input#data {
     height:30px;
