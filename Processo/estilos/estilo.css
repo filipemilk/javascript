@@ -49,11 +49,6 @@ input#ilink {
     height:25px;
     min-width: 440px;
 }
-input#add {
-    height:32px;
-    width:100px;
-    margin-top: 10px;
-}
 input#inome {
     height: 25px;
     min-width: 219px;
@@ -63,9 +58,18 @@ input#data {
     height:30px;
     width:150px
 }
-input#but {
+input[type="button"] {
     height:32px;
     width:100px;
+    color: white;
+    background-color: rgb(79, 79, 209);
+    border-radius: 8px;
+    border: 0px;
+    margin-top: 5px;
+}
+input[type="button"]:hover {
+    background-color: rgb(64, 64, 168);
+    cursor: pointer;
 }
 footer {
     color: white;
