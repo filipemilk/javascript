@@ -11,6 +11,9 @@ var a = window.document.getElementById('area')
 var d = window.document.getElementById('dados')
 var arq = window.document.getElementById('arquivo')
 
+var selecao = window.document.getElementById('iautordata') 
+var autor = window.document.getElementById('inome')
+
 var login = window.document.getElementById('ilogin')
 var senha = window.document.getElementById('isenha')
 
@@ -33,6 +36,20 @@ document.addEventListener('keypress', function(e) {
     e.preventDefault() //Parar o evento.
   }
 })
+
+//________________________________________________________________________________
+
+function desabilitar(){
+  if (selecao.value == "Autor") {
+    autor.removeAttribute('disabled', '')
+    myDate.setAttribute('disabled', '')
+  } else {
+    autor.setAttribute('disabled', '')
+    myDate.removeAttribute('disabled', '')
+  }
+}
+
+selecao.addEventListener('input', desabilitar)
 
 //________________________________________________________________________________
 
