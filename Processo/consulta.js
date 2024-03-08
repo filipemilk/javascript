@@ -41,11 +41,14 @@ document.addEventListener('keypress', function(e) {
 
 function desabilitar(){
   if (selecao.value == "Autor") {
-    autor.removeAttribute('disabled', '')
+    autor.removeAttribute('disabled')
     myDate.setAttribute('disabled', '')
+    myDate.value = ''
   } else {
     autor.setAttribute('disabled', '')
-    myDate.removeAttribute('disabled', '')
+    myDate.removeAttribute('disabled')
+    autor.value = ''
+    dataHoje()
   }
 }
 
