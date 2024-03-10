@@ -128,7 +128,11 @@ function consultar(sites) {
             window.alert(`Total de sites abertos: ${siteAberto}`)
           } else if (siteAberto == 0 && item == sites.length) {
             // console.log(`A palavra "${palavraChave}" não foi encontrada no site ${site}.`);
-            window.alert(`Não há processo tramitado nesta data: ${palavraChave}.`)
+            if (myDate.disabled == true) {
+              window.alert(`Nenhum processo encontrado com este nome: ${palavraChave}`)
+            } else {
+              window.alert(`Não há processo tramitado nesta data: ${palavraChave}`)
+            } 
           }
         })
         .catch(error => {
@@ -138,6 +142,8 @@ function consultar(sites) {
           d.style.textAlign = 'center'
         });
     })
+  } else if (myDate.disabled == true) {
+    window.alert(`Insira um nome!`)
   } else {
     window.alert(`Insira uma data válida!`)
   }
