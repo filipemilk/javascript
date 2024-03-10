@@ -95,7 +95,14 @@ function abrirArquivo() {
 
 function consultar(sites) {
 
-  var palavraChave = myDate.value.split('-').reverse().join('/')
+  var palavraChave
+
+  if (autor.disabled == true) {
+    palavraChave = myDate.value.split('-').reverse().join('/')
+  } else {
+    palavraChave = autor.value
+  }
+
   var siteAberto = 0
   var item = 0
 
