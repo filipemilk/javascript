@@ -99,7 +99,7 @@ function consultar(sites) {
   var siteAberto = 0
   var item = 0
 
-  if (myDate.value != '') {
+  if (palavraChave != '') {
     d.style.borderBottom = '1px solid #000'
     res.innerHTML = `<p>Total de Processos: ${sites.length}</p>`
     sites.forEach(site => {
