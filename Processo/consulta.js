@@ -11,6 +11,8 @@ var a = window.document.getElementById('area')
 var d = window.document.getElementById('dados')
 var arq = window.document.getElementById('arquivo')
 
+const butao = window.document.getElementById('but')
+
 var selecao = window.document.getElementById('iautordata') 
 var autor = window.document.getElementById('inome')
 
@@ -39,7 +41,7 @@ document.addEventListener('keypress', function(e) {
 
 //________________________________________________________________________________
 
-function desabilitar(){
+function desabilitar() {
   if (selecao.value == "Autor") {
     autor.removeAttribute('disabled')
     myDate.setAttribute('disabled', '')
@@ -53,6 +55,22 @@ function desabilitar(){
 }
 
 selecao.addEventListener('input', desabilitar)
+
+//________________________________________________________________________________
+
+function letraMaiuscula(autor) {
+
+  var palavra = autor.value.split(' ')
+
+  for (let i in palavra) {
+    if (palavra[i].length > 2) {
+      palavra[i] = palavra[i].charAt(0).toUpperCase() + palavra[i].slice(1).toLowerCase()
+    } else {
+      palavra[i] = palavra[i].toLowerCase()
+    }
+  }
+  autor = palavra.join(' ')
+}
 
 //________________________________________________________________________________
 
