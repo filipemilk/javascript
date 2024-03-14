@@ -14,6 +14,6 @@ function letraMaiuscula() {
             palavra[i] = palavra[i].toLowerCase()
         }
     }
-    window.alert(palavra.join(' '))
+    palavra = palavra.join(' ')
 }
 
