@@ -62,7 +62,7 @@ function letraMaiuscula() {
   var palavra = autor.value.split(' ')
 
   for (let i in palavra) {
-    if (palavra[i].length > 2) {
+    if (palavra[i].length > 3) {
       palavra[i] = palavra[i].charAt(0).toUpperCase() + palavra[i].slice(1).toLowerCase()
     } else {
       palavra[i] = palavra[i].toLowerCase()
