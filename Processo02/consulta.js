@@ -11,6 +11,22 @@ var a = window.document.getElementById('area')
 var d = window.document.getElementById('dados')
 var arq = window.document.getElementById('arquivo')
 
+var selecao = window.document.getElementById('iautordata') 
+var autor = window.document.getElementById('inome')
+
+var login = window.document.getElementById('ilogin')
+var senha = window.document.getElementById('isenha')
+
+//________________________________________________________________________________
+
+function entrar() {
+  if ((login.value == "flpsystem" && senha.value == "abracadabra40") || (login.value == "admin" && senha.value == "admin")) {
+    window.location.href = "processo.html"
+  } else {
+    window.alert('Usuário ou senha inválido!')
+  }
+}
+
 //________________________________________________________________________________
 
 document.addEventListener('keypress', function(e) {
@@ -20,6 +36,38 @@ document.addEventListener('keypress', function(e) {
     e.preventDefault() //Parar o evento.
   }
 })
+
+//________________________________________________________________________________
+
+function desabilitar() {
+  if (selecao.value == "Autor") {
+    autor.removeAttribute('disabled')
+    myDate.setAttribute('disabled', '')
+    myDate.value = ''
+  } else {
+    autor.setAttribute('disabled', '')
+    myDate.removeAttribute('disabled')
+    autor.value = ''
+    dataHoje()
+  }
+}
+
+selecao.addEventListener('input', desabilitar)
+
+//________________________________________________________________________________
+
+function letraMaiuscula() {
+  var palavra = autor.value.split(' ')
+
+  for (let i in palavra) {
+    if (palavra[i].length > 3) {
+      palavra[i] = palavra[i].charAt(0).toUpperCase() + palavra[i].slice(1).toLowerCase()
+    } else {
+      palavra[i] = palavra[i].toLowerCase()
+    }
+  }
+  nome = palavra.join(' ')
+}
 
 //________________________________________________________________________________
 
@@ -52,6 +100,7 @@ function abrirArquivo() {
     .then(text => {
       const lista = text.split('\n')
       const filtrado = lista.filter(x => x.substring(0,4) === 'http')      //O método trim() remove os espaços das tags vazias.
+      letraMaiuscula()
       consultar(filtrado)
     })
     .catch(error => {
@@ -62,11 +111,18 @@ function abrirArquivo() {
 
 function consultar(sites) {
 
-  var palavraChave = myDate.value.split('-').reverse().join('/')
+  var palavraChave
+
+  if (autor.disabled == true) {
+    palavraChave = myDate.value.split('-').reverse().join('/')
+  } else {
+    palavraChave = nome
+  }
+
   var siteAberto = 0
   var item = 0
 
-  if (myDate.value != '') {
+  if (palavraChave != '') {
     d.style.borderBottom = '1px solid #000'
     res.innerHTML = `<p>Total de Processos: ${sites.length}</p>`
     sites.forEach(site => {
@@ -88,7 +144,11 @@ function consultar(sites) {
             window.alert(`Total de sites abertos: ${siteAberto}`)
           } else if (siteAberto == 0 && item == sites.length) {
             // console.log(`A palavra "${palavraChave}" não foi encontrada no site ${site}.`);
-            window.alert(`Não há processo tramitado nesta data: ${palavraChave}.`)
+            if (myDate.disabled == true) {
+              window.alert(`Nenhum processo encontrado com este nome: ${palavraChave}`)
+            } else {
+              window.alert(`Não há processo tramitado nesta data: ${palavraChave}`)
+            } 
           }
         })
         .catch(error => {
@@ -98,6 +158,8 @@ function consultar(sites) {
           d.style.textAlign = 'center'
         });
     })
+  } else if (myDate.disabled == true) {
+    window.alert(`Insira um nome!`)
   } else {
     window.alert(`Insira uma data válida!`)
   }
