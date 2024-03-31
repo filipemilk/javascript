@@ -18,8 +18,8 @@
                 <div class="campo">
                     <label for="arquivo">Nome do Arquivo:</label>
                     <select name="arquivo" id="arquivo">
-                        <option value="Filipe">Filipe</option>
-                        <option value="Inaldo" selected>Inaldo</option>
+                        <option value="Filipe" selected>Filipe</option>
+                        <option value="Inaldo">Inaldo</option>
                         <option value="Teste">Teste</option>
                     </select>
                     .txt
@@ -27,9 +27,11 @@
                 <div class="campo">
                     <fieldset>
                         <legend>Adicionar Processo</legend>
-                        <label for="ilink">Link do Processo:</label>
-                        <input type="text" name="link" id="ilink">
-                        <input type="button" value="Adicionar" id="add" onclick="escreverArquivo()">
+                        <div>
+                            <label for="ilink">Link do Processo:</label>
+                            <input type="text" name="link" id="ilink">
+                            <input type="button" value="Adicionar" id="add" onclick="escreverArquivo()">
+                        </div>
                     </fieldset>
                 </div>
                 <div class="campo">

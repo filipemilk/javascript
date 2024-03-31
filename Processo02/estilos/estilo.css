@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
 body {
     background: rgb(79, 79, 209);
     font: normal 15pt Arial;
-    margin: 0px 4px;
-}
-header {
-    padding: 2px;
-    color: white;
-    text-align: center;
+    padding: 4px;
 }
 section{
     background: white;
@@ -19,8 +19,11 @@ section{
     margin: auto;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.521);
 }
+fieldset {
+    background-color: rgb(245, 245, 245);
+    padding: 8px;
+}
 div {
-    text-align: left;
     padding: 8px;
 }
 div#res {
@@ -28,46 +31,42 @@ div#res {
 }
 h1 {
     text-align: center;
-}
-img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    margin: 15px auto;
 }
 select {
     height:33px;
     width:207px
-}
-fieldset {
-    background-color: rgb(245, 245, 245);
 }
 legend {
     font-size: 0.8em;
     font-weight: bold;
 }
 input#ilink {
-    height:25px;
-    width: 60%;
-    margin-right: 10px;
+    height:33px;
+    width: 58%;
+    margin-right: 7px;
 }
 input#inome {
-    height: 25px;
+    height: 33px;
     width: 300px;
     text-transform: capitalize;
 }
 input#data {
-    height:30px;
+    height:33px;
     width:150px
 }
 input[type="button"] {
-    height:32px;
+    height:33px;
     width:100px;
     color: white;
     background-color: rgb(79, 79, 209);
     border-radius: 8px;
     border: 0px;
-    margin-top: 5px;
 }
+input#add {
+    margin-top: 10px;
+}
+
 input[type="button"]:hover {
     background-color: rgb(64, 64, 168);
     cursor: pointer;
@@ -76,4 +75,5 @@ footer {
     color: white;
     text-align: center;
     font-style: italic;
+    margin-top: 10px;
 }
