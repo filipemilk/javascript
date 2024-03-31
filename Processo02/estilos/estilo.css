@@ -27,7 +27,9 @@ div {
     padding: 8px;
 }
 div#res {
+    margin: 8px auto;
     overflow-x: auto;
+    width: calc(100% - 30px);
 }
 h1 {
     text-align: center;

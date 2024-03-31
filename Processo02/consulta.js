@@ -123,7 +123,7 @@ function consultar(sites) {
   var item = 0
 
   if (palavraChave != '') {
-    d.style.borderBottom = '1px solid #000'
+    res.style.borderTop = '1px solid #000'
     res.innerHTML = `<p>Total de Processos: ${sites.length}</p>`
     sites.forEach(site => {
       fetch(site)
