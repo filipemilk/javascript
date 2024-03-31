@@ -131,9 +131,7 @@ function consultar(sites) {
         .then(text => {
           //Verificador de sites repetidos!
           if(sites.indexOf(sites[item]) != item) {
-            res.innerHTML += `<p>Endereço repetido:</p> ${sites[item]}`
-            a.style.maxWidth = '1000px'
-            d.style.textAlign = 'center'
+            res.innerHTML += `<p>Endereço repetido:</p> <p>${sites[item]}</p>`
           }
           item++
 
@@ -153,9 +151,7 @@ function consultar(sites) {
         })
         .catch(error => {
           //console.error(`Ocorreu um erro ao acessar o site ${site}:`, error);
-          res.innerHTML += `<p>O endereço de site está inválido:</p> ${site}`
-          a.style.maxWidth = '1000px'
-          d.style.textAlign = 'center'
+          res.innerHTML += `<p>O endereço de site está inválido:</p> <p>${site}</p>`
         });
     })
   } else if (myDate.disabled == true) {

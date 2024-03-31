@@ -31,6 +31,9 @@ div#res {
     overflow-x: auto;
     width: calc(100% - 30px);
 }
+p {
+    padding: 8px;
+}
 h1 {
     text-align: center;
     margin: 15px auto;
