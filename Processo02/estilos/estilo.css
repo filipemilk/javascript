@@ -71,7 +71,6 @@ input[type="button"] {
 input#add {
     margin-top: 10px;
 }
-
 input[type="button"]:hover {
     background-color: rgb(64, 64, 168);
     cursor: pointer;
