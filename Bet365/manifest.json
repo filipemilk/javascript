@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Bet365",
+    "version": "0.0.1",
+    "description": "Notificação para Prorrogação e Pênaltis.",
+    "content_scripts": [
+        {
+            "matches": ["https://www.bet365.com/#/IP/B1"],
+            "css": ["style.css"],
+            "js": ["index.js"]
+        }
+    ]
+}
