@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "MLExt",
+    "version": "0.0.1",
+    "description": "Dados complementares Mercado Livre.",
+    "content_scripts": [
+        {
+            "matches": ["https://*.mercadolivre.com.br/*"],
+            "css": ["style.css"],
+            "js": ["index.js"]
+        }
+        
+    ]
+}
