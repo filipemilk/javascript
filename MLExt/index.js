@@ -29,5 +29,23 @@ function formatMoney(value) {
         currency: 'BRL'
     })
 }
+
+function handleMlApi(url) {
+    try {
+        const config = {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': application/json',
+            }
+        }
+
+        const response = await fetch(url, config);
+        
+
+    } catch(err) {
+        console.log("Erro na requisição:", err)
+    }
+}
     
 init()
