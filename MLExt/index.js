@@ -9,6 +9,11 @@ function init() {
 
     const container = document.querySelector('.ui-pdp-header__title-container')
 
+    const adId = document.querySelector('meta[name="twitter:app:url:iphone"]').content.split('id=')[1]
+
+    const mlResponse = await handleMlApi(`https://api.mercadolibre.com/items?ids=${adId}`)
+    console.log(`${mlResponse}`)
+
     const total = Number(price + '.' + cents) * sold
     
     
@@ -30,18 +35,19 @@ function formatMoney(value) {
     })
 }
 
-function handleMlApi(url) {
+async function handleMlApi(url) {
     try {
         const config = {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
-                'Content-Type': application/json',
+                'Content-Type': 'application/json',
             }
         }
 
-        const response = await fetch(url, config);
-        
+        const response = await fetch(url, config)
+        const finalRes = await response.json()
+        return finalRes
 
     } catch(err) {
         console.log("Erro na requisição:", err)
