@@ -16,10 +16,8 @@ async function init() {
 
     const total = Number(price + '.' + cents) * sold
     
-    
-
     setTimeout(() => {
-        container.insertAdjacentHTML('beforebegin',
+        container?.insertAdjacentHTML('beforebegin',
     `
         <ul class="mlext-container">
             <li>Receita bruta: <span>${formatMoney(total)}</span></li>
