@@ -23,14 +23,9 @@ async function init() {
 
   const mlResponse = await handleMlApi(`https://api.mercadolibre.com/items?ids=${adId}`);
 
-  const {
-    body: {category_id, listing_type_id, start_time},
-  } = mlResponse[0] || null;
+  const {body: {category_id, listing_type_id, start_time}} = mlResponse[0] || null;
 
-  const {sale_fee_amount} =
-    (await handleMlApi(
-      `https://api.mercadolibre.com/sites/MLB/listing_prices?price=${price}&listing_type_id=${listing_type_id}&category_id=${category_id}`
-    )) || {};
+  const {sale_fee_amount} = (await handleMlApi(`https://api.mercadolibre.com/sites/MLB/listing_prices?price=${price}&listing_type_id=${listing_type_id}&category_id=${category_id}`));
 
   const total = Number(price + '.' + cents) * sold;
   const unitReceipt = price - sale_fee_amount;
