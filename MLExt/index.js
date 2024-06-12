@@ -1,6 +1,6 @@
 "use strict"
 
-function init() {
+async function init() {
     const price = document.querySelector('div.ui-pdp-price__second-line > span:nth-child(1) > span > span.andes-money-amount__fraction')?.innerText.replace('.', '') || '0'
 
     const cents = document.querySelector('div.ui-pdp-price__second-line > span:nth-child(1) > span > span.andes-money-amount__cents')?.innerText || '0'
@@ -12,7 +12,7 @@ function init() {
     const adId = document.querySelector('meta[name="twitter:app:url:iphone"]').content.split('id=')[1]
 
     const mlResponse = await handleMlApi(`https://api.mercadolibre.com/items?ids=${adId}`)
-    console.log(`${mlResponse}`)
+    console.log("RESPOSTA ML", mlResponse)
 
     const total = Number(price + '.' + cents) * sold
     
