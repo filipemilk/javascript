@@ -9,7 +9,7 @@ async function init() {
 
     const container = document.querySelector('.ui-pdp-header__title-container')
 
-    const adId = document.querySelector('meta[name="twitter:app:url:iphone"]').content.split('id=')[1]
+    const adId = document.querySelector('meta[name="twitter:app:url:iphone"]')?.content.split('id=')[1]
 
     const mlResponse = await handleMlApi(`https://api.mercadolibre.com/items?ids=${adId}`)
     console.log("RESPOSTA ML", mlResponse)
