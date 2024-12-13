@@ -5,7 +5,7 @@ async function init() {
 
     const cents = document.querySelector('div.ui-pdp-price__second-line > span:nth-child(1) > span > span.andes-money-amount__cents')?.innerText || '0'
 
-    const sold = Number(document.querySelector('.ui-pdp-header__subtitle > span')?.innerText.split(' ')[4].replace('mil', '000') || '0')
+    const sold = Number(document.querySelector('.ui-pdp-header__subtitle')?.innerText.split(' ')[4].replace('mil', '000') || '0')
 
     const container = document.querySelector('.ui-pdp-header__title-container')
 
