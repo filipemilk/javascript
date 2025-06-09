@@ -12,7 +12,7 @@ async function init() {
     const adId = document.querySelector('meta[name="twitter:app:url:iphone"]')?.content.split('id=')[1]
 
     const mlResponse = await handleMlApi(`https://api.mercadolibre.com/items?ids=${adId}`)
-    console.log("RESPOSTA ML", mlResponse)
+    console.log('RESPOSTA ML', mlResponse)
 
     const total = Number(price + '.' + cents) * sold
     
