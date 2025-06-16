@@ -72,13 +72,13 @@ app.get('/getInfoVenda', async (req, res) => {
 
     const access_token = 'APP_USR-5295873722472032-061612-2141fc3ded387663336f3b758c019a0d-154458559'
 
-    const id_venda = "2000003508897196"
+    const id_venda = "MLB3725034107"
 
     const headers = {
-        "Authorization": `Bearer ${access_token}`
+        Authorization: `Bearer ${access_token}`
     }
 
-    const url = `https://api.mercadolibre.com/orders/${id_venda}`
+    const url = `https://api.mercadolibre.com/items?ids=${id_venda}`
 
     const resposta = await fetch(url, {
         method: 'GET',
