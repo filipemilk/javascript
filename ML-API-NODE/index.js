@@ -6,6 +6,7 @@ const fetch = require('node-fetch')
 //Indica onde está os arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')))
 
+//Rota de teste
 app.post('/test', async (req, res) => {
     //Aqui vai o script desta rota
     const app_id = "5295873722472032"
@@ -35,6 +36,36 @@ app.post('/test', async (req, res) => {
     console.log(resposta_json)
 
     res.send("OK")
+})
+
+app.post('/getAccessToken', async (req, res) => {
+
+    //Variáveis que vamo precisar enviar à API do Mercado Livre
+    const app_id = "5295873722472032"
+    const client_secret = "fxhJIHKnC9kp7yQdekSIJmYRJphxdgk1"
+    const refresh_token = "TG-684ca276d517ac0001af6b4e-154458559"
+
+    const url_principal = "https://api.mercadolibre.com/oauth/token"
+
+    const headers = {
+        "accept": "application/json",
+        "content-type": "application/x-www-form-urlencoded"
+    }
+
+    const dados = `grant_type=refresh_token&client_id=${app_id}&client_secret=${client_secret}&refresh_token=${refresh_token}`
+
+    const resposta = await fetch(url_principal, {
+        method: 'POST',
+        headers: headers,
+        body: dados
+    })
+
+    const resposta_json = await resposta.json()
+
+    console.log(resposta_json)
+
+    res.send("OK")
+
 })
 
 const PORT = process.env.PORT || 3000
