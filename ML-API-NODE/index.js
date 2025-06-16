@@ -43,7 +43,7 @@ app.post('/getAccessToken', async (req, res) => {
     //Variáveis que vamo precisar enviar à API do Mercado Livre
     const app_id = "5295873722472032"
     const client_secret = "fxhJIHKnC9kp7yQdekSIJmYRJphxdgk1"
-    const refresh_token = "TG-684ca276d517ac0001af6b4e-154458559"
+    const refresh_token = "TG-6850223a1fb77d00012faafd-154458559"
 
     const url_principal = "https://api.mercadolibre.com/oauth/token"
 
@@ -66,6 +66,30 @@ app.post('/getAccessToken', async (req, res) => {
 
     res.send("OK")
 
+})
+
+app.get('/getInfoVenda', async (req, res) => {
+
+    const access_token = 'APP_USR-5295873722472032-061609-2ec87d9632e2ea9e182f217700f8d6c1-154458559'
+
+    const id_venda = "2000003508897196"
+
+    const headers = {
+        "Authorization": `Bearer ${access_token}`
+    }
+
+    const url = `https://api.mercadolibre.com/orders/${id_venda}`
+
+    const resposta = await fetch(url, {
+        method: 'GET',
+        headers: headers,
+    })
+
+    const resposta_json = await resposta.json()
+
+    console.log(resposta_json)
+
+    res.send(resposta_json)
 })
 
 const PORT = process.env.PORT || 3000
