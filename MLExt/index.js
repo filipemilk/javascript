@@ -36,7 +36,7 @@ function formatMoney(value) {
 async function handleMlApi(url) {
     try {
         //ACCESS TOKEN FOI DA OUTRA AULA
-        const access_token = 'APP_USR-5295873722472032-061612-2141fc3ded387663336f3b758c019a0d-154458559'
+        const access_token = 'APP_USR-5295873722472032-061809-c2a09dc3be74cfc9ae44d807c0213941-154458559'
 
         const config = {
             method: 'GET',
