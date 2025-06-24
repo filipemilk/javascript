@@ -1,7 +1,11 @@
 "use strict"
 
 function init(){
-    const placar = document.querySelector('div.ovm-Fixture_Container > div.ovm-MarketGroup > div > div.ovm-AlternativeMarketHeader').innerText
+    const elementos = document.querySelectorAll(".ovm-AlternativeMarketHeader")
+
+    for (let i = 0; i < elementos.length; i++) {
+        console.log(elementos[i].innerText);
+    }
 }
 
 init()
