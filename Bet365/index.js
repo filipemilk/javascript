@@ -4,7 +4,14 @@ function init(){
     const elementos = document.querySelectorAll(".ovm-AlternativeMarketHeader")
 
     for (let i = 0; i < elementos.length; i++) {
-        console.log(elementos[i].innerText);
+        let elemento = elementos[i].innerText
+        if(elemento == "Para Marcar o 1° Gol" || elemento == "Para Marcar o 7° Gol") {
+            console.log(elemento)
+            alert(elemento)
+        } else {
+            console.log(elemento)
+            alert(elemento)
+        }
     }
 }
 
