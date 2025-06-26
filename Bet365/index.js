@@ -10,7 +10,6 @@ function init(){
             alert(elemento)
         } else {
             console.log(elemento)
-            alert(elemento)
         }
     }
 }
