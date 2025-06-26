@@ -5,7 +5,7 @@ function init(){
 
     for (let i = 0; i < elementos.length; i++) {
         let elemento = elementos[i].innerText
-        if(elemento == "Para Marcar o 1° Gol" || elemento == "Para Marcar o 7° Gol") {
+        if(elemento == "Para Ganhar nos Pênaltis" || elemento == "Para Marcar o 7° Gol") {
             console.log(elemento)
             alert(elemento)
         } else {
