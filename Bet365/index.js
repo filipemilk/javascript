@@ -14,13 +14,14 @@ function init(){
             console.log(elemento)
             }
         }
+        console.log("-----------------------------------")
     }
     
     function loop() {
         setTimeout(() => {
             penalti()
             loop()
-        }, 10000)
+        }, 30000)
     }
       
 }
