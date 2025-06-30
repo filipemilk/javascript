@@ -2,6 +2,7 @@
 
 function init(){
 
+    const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3')
     var contador = 1
     
     function penalti() {
@@ -15,6 +16,7 @@ function init(){
             let elemento = elementos[i].innerText
             if(elemento == "Para Ganhar nos Pênaltis" || elemento == "Resultado da Prorrogação") {
                 console.log(elemento)
+                audio.play()
                 alert(elemento)
             } else {
             console.log(elemento)
@@ -23,12 +25,12 @@ function init(){
         console.log("-----------------------------------")
     }
     
-    function loop() {
+    (function loop() {
         setTimeout(() => {
             penalti()
             loop()
         }, 30000)
-    }
+    }())
       
 }
 
