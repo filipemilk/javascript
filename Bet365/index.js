@@ -17,7 +17,6 @@ function init(){
             if(elemento == "Para Ganhar nos Pênaltis" || elemento == "Resultado da Prorrogação") {
                 console.log(elemento)
                 audio.play()
-                break
             } else {
             console.log(elemento)
             }
